@@ -1,0 +1,182 @@
+*{
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+	/* background-color: #f5f8fa; */
+}
+.header {
+}
+.search input,button{
+	width:60%;
+}
+.login{
+	margin-right: 10px;
+}
+.logo{
+	vertical-align: top;
+	max-width: 200px;
+	max-height: 50px;
+	text-align: center;
+}
+header{
+	background-color: #f5f8fa;
+}
+body{
+	background-color: #f5f8fa;
+}
+/* #bestseller-icon{
+	display: inline;
+} */
+.search input{
+	height: 42px;
+	padding-left: 10px;
+	border:2px solid red;
+	border-radius: 5px;
+	outline: none;
+	background:white;
+	color: #9E9C9C;
+}
+.choose{
+	width: 100%;
+	font-size:1.2em;
+	padding-right:4em;
+	font-family: 'Montserrat',Arial,serif;
+    font-weight: 400;
+    text-transform: none;
+}
+.choose a, a:hover, a:active,.login, .login a:hover, .login a:active{
+	text-decoration: none;
+	color:black;
+	cursor: default;
+}
+.search button{
+	position: absolute;
+	top: 0px;
+	left: 50%;
+	width: 10%;
+
+	height: 42px;
+	border: none;
+	background:#7BA7AB;
+	border-radius: 0 5px 5px 0;
+	cursor: pointer;
+	background-color: none;
+}
+#search-icon{
+	color: white;
+	background-color: none;
+}
+#shop{
+	color:black;
+	width: 100%;
+}
+.holder{
+	background: red;
+	background-color: red;
+	height: 100%;
+	content: '';
+	display: block;
+	left: 20px;
+	right: 20px;
+	top:0px;
+	margin-left: 25px;
+	margin-right: 25px;
+	height: 5px;
+}
+.location {
+	opacity: 0.5;
+}
+#header{
+	margin-top: 30px;
+}
+.town{
+	font-size: 1em;
+	margin-left: 15px;
+}
+#bestseller-icon{
+	font-size: 2em;
+
+}
+hr{
+	color: black;
+}
+
+.bestseller{
+	border:1px solid #f5f8fa;
+	width: 100px;
+	border-radius: 5px;
+	margin-left: 1em;
+	background-color: white;
+
+}
+.old-price{
+	opacity: 0.5;
+	text-decoration: line-through;
+}
+.price{
+	margin-left:2em;
+}
+.price-by-card{
+	text-decoration: underline;
+	line-height: 0.7em;
+}
+
+.holder-1{
+	position:relative;
+    margin:auto;
+}
+.block{
+    position:absolute;
+    left:0;
+    bottom:0;
+    right:0;
+    top:0;
+    display:none;
+    padding-left: 5em;
+  	opacity: 1;
+}
+.holder-1:hover{
+	text-decoration: line-through;
+	color: rgba(242, 38, 19, 0.5);    }
+.holder-1:hover .block{
+	display: block;
+	color:rgba(0,0,0,1);
+	opacity: 1;
+
+}
+
+.choose{
+	display: block;
+    text-align: center;
+}
+
+.choose-town{
+	display: block;
+/*	text-align: left;*/
+}
+.header-nav{
+	display: inline;
+	padding: 5px;
+}
+.positioner-of-product{
+	height: auto;
+	width: auto;
+	align-items: center;
+
+}
+.tel{
+	font-family: 'Montserrat',Arial,serif;
+    font-weight: 400;
+    text-transform: none;
+    color: black;
+    text-align: left;
+}
+
+.footer-social{
+	text-align: right;
+}
+#logo{
+	font-family: 'Ranga';
+	color: black;
+	font-size: 3em;
+}
