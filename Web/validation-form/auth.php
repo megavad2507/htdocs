@@ -4,7 +4,8 @@ require 'connect.php';
 if(isset($_POST['email']) && isset($_POST['password'])){
   $password = $_POST['password'];
   $email = $_POST['email'];
-  $query = "SELECT * FROM users WHERE email='$email' and password='$password'";
+  $login = "";
+  $query = "SELECT * FROM users WHERE email='$email' and password='$password' and login  = '$login'";
   $result = mysqli_query($connection,$query) or die(mysqli_error($connection));
   $count =mysqli_num_rows($result);
   if($count == 1){

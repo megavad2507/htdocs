@@ -1,46 +1,74 @@
-<?php require_once 'validation-form/check_login.php'?>
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Регистарция или вход</title>
-</head>
-<header>
-  <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-</header>
 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Raleway">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="css/login.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <title>Вход и регистрация</title>
+</head>
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <h1>Форма регистрации</h1>
+<?php
+    require_once 'validation-form/AuthPHP.php';
+    require_once 'check_censure.php';
+
+    require_once  'validation-form/registration.php';
+?>
+<body>
+<?php if(!isset($_SESSION['is_logged'])):?>
+<div class="container col-md-4">
+    <div class="toggle"><i class="fa fa-times"></i></div>
+    <div class="form">
+        <h3>Войти</h3>
         <?php
-          if(isset($smsg)){ ?> <div class="alert alert-success" role="alert"><?php echo $smsg;?></div><?php }?>
-          <?php
-          if(isset($fmsg)){ ?> <div class="alert alert-danger" role="alert">
-            <?php echo $fmsg; ?></div><?php }?>
+            if($_SESSION['try']){
+                if($_SESSION['auth']){
+                    echo "<div class ='alert-danger'>Вы ввели неправильно email или пароль</div>";
+                }
+            }
+        ?>
         <form method="post">
-          Имя <input type="text" class="form-control" name="username"><br>
-          Email <input type="text" class="form-control" name="email"><br>
-          Пароль(от 4 до 12 символов) <input type="password" class="form-control" name="password"><br>
-          <button class="btn btn-success" type="submit">Зарегистрироваться</button><br>
+        <label>Email : <span>*</span></label>
+        <input type="email" class="txt" name="email" />
+        <label>Пароль : <span>*</span></label>
+        <input type="password" class="txt" name="password" />
+        <button type="submit" name="button" id="btn-enter">Войти</button>
         </form>
-      </div>
-      <div class="col-md-4">
-        <h1>Форма авторизации</h1>
-        <!-- <?php
-          if(isset($))
-        ?> -->
-        <form method="post">
-          Email <input type="text" class="form-control" name="email"><br>
-          Пароль(от 4 до 12 символов) <input type="password" class="form-control" name="password"><br>
-          <button class="btn btn-success" type="submit">Войти</button><br>
-        </form>
-        <?php require_once 'validation-form/auth.php' ?>
-      </div>
-      </div>
     </div>
+    <div class="form signin">
+        <h3>Зарегистрироваться</h3>
+<!--        --><?php
+//            if($_SESSION['censure']){
+//                echo "<div class = 'alert-danger'>Не используйте мат</div>";
+//            }
+//        ?>
+        <form method="post">
+        <label>Имя : <span>*</span></label>
+        <input type="text" class="txt" name="username" />
+        <label>Email : <span>*</span></label>
+        <input type="email" class="txt" name="email"/>
+        <label>Пароль : <span>*</span></label>
+        <input type="password" class="txt" name="password" />
+        <button type="submit" name="button" id="btn-register">Зарегистрироваться</button>
+        </form>
+    </div>
+</div>
+<?php else: header('Location: profile.php');
+endif;?>
 </body>
+<script src="https://kit.fontawesome.com/5ffafa98ae.js"></script>
+<script>
+    $('.signin').hide();
+    $('.toggle').click(function () {
+        $(this).next().slideToggle(400);
+        $(this).next().next().slideToggle(400);
+    });
+
+</script>
 </html>

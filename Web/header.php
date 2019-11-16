@@ -2,6 +2,9 @@
 <html lang="ru">
 
 <head>
+    <?php
+    session_start();
+    ?>
     <meta charset="UTF-8">
     <meta name="veiwpoint" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
@@ -30,7 +33,13 @@
                     <a href="index.php"><span id ="logo">Jeweler-from-MOS</span></a>
                 </div>
                 <div align="right" class="col-md-4">
+                    <?php
+                    if(!isset($_SESSION['is_logged'])): ?>
                     <a href="login.php" class="login">Войти или зарегистрироваться</a>
+                    <?php else: ?>
+                        <a href="profile.php" class="login">Профиль</a>
+                        <a href="validation-form/logout.php" class="login">Выйти</a>
+                    <?php endif;?>
                 </div>
             <ul class="location choose-town">
                 <li class="header-nav">
@@ -48,15 +57,17 @@
                 <li class="header-nav">
                     <a href="users.php">Пользователи</a>
                 </li>
+                <?php if(isset($_SESSION['is_admin'])): ?>
                 <li class="header-nav">
-                    <a href="examples.php">examples</a>
-                <!-- </li>
-                <li class="header-nav">
-                    <a href="#">Акции</a>
-                </li>
-                <li class="header-nav">
-                    <a href="#">Магазины</a>
-                </li> -->
+                    <a href="Add_order.php">Добавление заказа</a>
+                 </li>
+                <?php endif; ?>
+<!--                <li class="header-nav">-->
+<!--                    <a href="#">Акции</a>-->
+<!--                </li>-->
+<!--                <li class="header-nav">-->
+<!--                    <a href="#">Магазины</a>-->
+<!--                </li> -->
             </ul>
 
         </div>

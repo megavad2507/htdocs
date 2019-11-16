@@ -1,5 +1,9 @@
 <?php
-session_start();
+require_once 'AuthPHP.php';
 session_destroy();
+UnSet($_SESSION['is_logged']);
+//UnSet($_POST['username']);
+//UnSet($_POST['email']);
+//UnSet($_POST['password']);
 header('Location: /index.php');
 ?>
