@@ -1,5 +1,3 @@
-<!--//--><?php //require_once 'validation-form/check_login.php'?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,41 +13,13 @@
   <title>Document</title>
 </head>
 <body>
-<?php
-//подключение к бд
-    $host = 'localhost';
-    $user = 'root';
-    $pass = "";
-    $db_name = 'products';
-    $link = mysqli_connect($host,$user,$pass,$db_name);
-    mysqli_set_charset($link,'utf8');
-    if(!$link){
-        echo "Error to connect db. Code of error " .mysqli_connect_errno()." error is ".mysqli_connect_error();
-        exit;
-    }
-?>
-<?php
-//заполнение бд
-    if(isset($_POST["Name_of_user"]) && isset($_POST["Name_of_product"]) && isset($_POST["Price"]) && isset($_POST["Date"]) && isset($_POST["Tel"])){
-        $sql = mysqli_query($link,"INSERT INTO `products`(`FULL NAME`,`PRODUCT`,`PRICE`,`DATE`,`TELEPHONE`)
-        VALUES('{$_POST['Name_of_user']}','{$_POST['Name_of_product']}','{$_POST['Price']}','{$_POST['Date']}','{$_POST['Tel']}' )");
-        if($sql){
-            echo "<p>Tha data was sucessfull added</p>";
-        }
-        else{
-            echo "<p>Error : ".mysqli_error($link)."</p>";
-        }
-    }
-?>
-<?php
-//получение данных
-    $sql = mysqli_query($link,'SELECT `FULL NAME`, `PRODUCT`,`PRICE`,`DATE`,`TELEPHONE` FROM `products` ');
-?>
-<div class="container-fluid">
+<?php  require_once  'send.php'?>
+
+<div class="container-fluid" style="margin-top: 20px">
     <div class="row">
         <div class="col-md-8">
-            <table class="table table-bordered table-primary">
-                <thead>
+            <table class="table table-bordered ">
+                <thead class="table-danger">
                     <tr>
                         <th>#</th>
                         <th>ФИО</th>
@@ -78,8 +48,8 @@
         </div>
 
         <div class="col-md-4">
-            <form method="post" action="Add_order.php">
-                <table class="table table-primary">
+            <form method="post" action="send.php">
+                <table class="table table-bordered>
                     <tr>
                         <td>Фамилия Имя Отчество: </td>
                         <td><input type="text" name="Name_of_user" required></td>
@@ -101,8 +71,8 @@
 <!--                        <td><input type="tel" name="Tel" value="+7" required pattern="[(][0-9]{3}[)][ -][0-9]{3}[ -][0-9]{2}[ -][0-9]{2}"></td>-->
                         <td><input type="text" id="tel" value="" name="Tel" required></td>
                     </tr>
-                    <tr class="table-success">
-                        <td colspan="2"><input class="btn btn-success mb-2" type="submit" value="Отправить"></td>
+                    <tr class="table">
+                        <td colspan="2"><input class="btn mb-2 btn-success"  type="submit" value="Отправить"></td>
                     </tr>
                 </table>
             </form>
