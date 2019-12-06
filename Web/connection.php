@@ -1,0 +1,1 @@
+<?phpfunction set_connection($host, $user, $pass, $db_name){    $GLOBALS['link'] = mysqli_connect($host, $user, $pass, $db_name);    mysqli_set_charset($GLOBALS['link'], 'utf8');    if (!$GLOBALS['link']) {        echo "Error to connect db. Code of error " . mysqli_connect_errno() . " error is " . mysqli_connect_error();        exit();    }}?>

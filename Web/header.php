@@ -4,6 +4,8 @@
 <head>
     <?php
     session_start();
+    require_once "connection.php";
+    set_connection('localhost','root','','goods');
     ?>
     <meta charset="UTF-8">
     <meta name="veiwpoint" content="width=device-width, initial-scale=1">
@@ -21,7 +23,7 @@
         <div class="container-fluid" id="header">
             <div class="row">
                 <div class="col-md-4">
-                    <form action="" method="get">
+                    <form action="search.php" method="get">
                         <div class="search">
                             <input type="search" name="search" placeholder="Поиск...">
                             <button type="submit"><i id="search-icon" class="fas fa-search"></i></button>
@@ -29,7 +31,6 @@
                     </form>
                 </div>
                 <div class="col-md-4" align="center">
-                    <!-- <a href="index.php"><img src="images/logo.png" class="logo" alt="logo" title="Jeweler from MOS"></a> -->
                     <a href="index.php"><span id ="logo">Jeweler-from-MOS</span></a>
                 </div>
                 <div align="right" class="col-md-4">
@@ -61,6 +62,9 @@
                 <li class="header-nav">
                     <a href="Add_order.php">Добавление заказа</a>
                  </li>
+                <li class="header-nav">
+                    <a href="AddProduct.php">Добавление товара</a>
+                </li>
                 <?php endif; ?>
 <!--                <li class="header-nav">-->
 <!--                    <a href="#">Акции</a>-->

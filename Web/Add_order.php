@@ -8,6 +8,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/jquery.inputmask.js"></script>
+    <script src="https://kit.fontawesome.com/5ffafa98ae.js"></script>
   <link rel="stylesheet" href="css/style.css" type="text/css">
   <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
   <title>Document</title>
@@ -31,16 +32,15 @@
                 </thead>
                 <tbody>
                     <?php
-                    $number_of_rows = 1;
-                    while($result = mysqli_fetch_array($sql)) {
+                    while($result = mysqli_fetch_array($sql_data)) {
                         echo '<tr>';
-                        echo '<td>' . $number_of_rows . '</td>';
+                        echo '<td>' . $result['id'] .'</td>';
                         echo '<td>' . $result['FULL NAME'] . '</td>';
                         echo '<td>' . $result['PRODUCT'] . '</td>';
                         echo '<td>' . $result['PRICE'] . '</td>';
                         echo '<td>' . $result['DATE'] . '</td>';
-                        echo '<td>' . $result['TELEPHONE'] . '</td> </tr>';
-                        $number_of_rows++;
+                        echo '<td>' . $result['TELEPHONE'] . '</td>';
+                        echo "<td><a href='?del={$result['id']}'><i class='fa fa-trash' aria-hidden='true'></i></a><a href='?edit={$result['id']}'><i class='fa fa-pencil' aria-hidden='true'></i></a> </td></tr>";
                     }
                     ?>
                 </tbody>
@@ -48,28 +48,27 @@
         </div>
 
         <div class="col-md-4">
-            <form method="post" action="send.php">
-                <table class="table table-bordered>
+            <form method="post">
+                <table class="table table-bordered">
                     <tr>
                         <td>Фамилия Имя Отчество: </td>
-                        <td><input type="text" name="Name_of_user" required></td>
+                        <td><input type="text" name="Name_of_user" value="<?= isset($_GET['edit']) ? $product['FULL NAME']: '' ; ?>" required></td>
                     </tr>
                     <tr>
                         <td>Название товара</td>
-                        <td><input type="text" name="Name_of_product" required></td>
+                        <td><input type="text" name="Name_of_product" value="<?= isset($_GET['edit']) ? $product['PRODUCT'] : ''; ?>" required></td>
                     </tr>
                     <tr>
                         <td>Цена</td>
-                        <td><input type="number" size="10" name="Price" required>руб.</td>
+                        <td><input type="number" size="10" name="Price" value="<?= isset($_GET['edit']) ? $product['PRICE'] : ''; ?>" required>руб.</td>
                     </tr>
                     <tr>
                         <td>Дата</td>
-                        <td><input type="date" name="Date" required></td>
+                        <td><input type="date" name="Date"  value="<?= isset($_GET['edit']) ? $product['DATE'] : ''; ?>"required></td>
                     </tr>
                     <tr>
                         <td>Контактный телефон</td>
-<!--                        <td><input type="tel" name="Tel" value="+7" required pattern="[(][0-9]{3}[)][ -][0-9]{3}[ -][0-9]{2}[ -][0-9]{2}"></td>-->
-                        <td><input type="text" id="tel" value="" name="Tel" required></td>
+                        <td><input type="text" id="tel" name="Tel" value="<?= isset($_GET['edit']) ? $product['TELEPHONE'] : ''; ?>"  required></td>
                     </tr>
                     <tr class="table">
                         <td colspan="2"><input class="btn mb-2 btn-success"  type="submit" value="Отправить"></td>

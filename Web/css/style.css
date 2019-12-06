@@ -103,9 +103,9 @@ hr{
 
 .bestseller{
 	border:1px solid #f5f8fa;
-	width: 100px;
+	width: 90%;
+	dislay:block;
 	border-radius: 5px;
-	margin-left: 1em;
 	background-color: white;
 
 }
@@ -138,11 +138,10 @@ hr{
 .holder-1:hover{
 	text-decoration: line-through;
 	color: rgba(242, 38, 19, 0.5);    }
-.holder-1:hover .block{
+.holder-1:hover .block {
 	display: block;
-	color:rgba(0,0,0,1);
+	color: rgba(0, 0, 0, 1);
 	opacity: 1;
-
 }
 
 .choose{
@@ -159,9 +158,10 @@ hr{
 	padding: 5px;
 }
 .positioner-of-product{
-	height: auto;
-	width: auto;
-	align-items: center;
+	/*height: auto;*/
+	/*width: auto;*/
+	margin-top: 25px;
+	margin-left:50px;
 
 }
 .tel{
@@ -171,7 +171,10 @@ hr{
     color: black;
     text-align: left;
 }
-
+.img_product{
+	display:block;
+	width: 100%;
+}
 .footer-social{
 	text-align: right;
 }

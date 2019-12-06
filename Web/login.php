@@ -26,6 +26,10 @@
     <div class="toggle"><i class="fa fa-times"></i></div>
     <div class="form">
         <h3>Войти</h3>
+        <p>Войти через:</p>
+        <a href="https://oauth.vk.com/authorize?client_id=7236626&display=page&redirect_uri=http://jeweler-from-mos.com/validation-form/authVK.php&response_type=code">
+            <img src="http://info-less.ru/article/6/resources/vk.png"/>
+        </a>
         <?php
             if($_SESSION['try']){
                 if($_SESSION['auth']){
